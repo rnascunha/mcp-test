@@ -22,31 +22,32 @@ $ uv install
 
 You can start a HTTP streamable or SSE (legacy) MCP server, with or without authentication (`Bearer token`).
 
-For authorization, the default token used is: `api-key-12345`. Just add the header:
+To use it:
 
 ```bash
-Authorization: Bearer api-key-12345
+$ uv run src/app.py --help
+warning: `VIRTUAL_ENV=/home/rnascunha/dev/workspace/test/mcp-test/.venv` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead
+usage: app.py [options]
+
+MCP Server
+
+options:
+  -h, --help            show this help message and exit
+  -n NAME, --name NAME  Server name
+  -t {http,sse}, --transport {http,sse}
+                        Transport protocol ('http'|'sse'). Default = http
+  -p PORT, --port PORT  Endpoint port
+  -u URL, --url URL     Endpoint URL
+  -a AUTH, --auth AUTH  Server require authentication using token provided
+  -m PATH, --path PATH  Endpoint path (must start with '/')
 ```
 
-### HTTP streamable
-
-**Endpoint**: `http://localhost:8000/mcp`.
-
-To initiate the server, at the project root directory:
-
+Default values:
 ```bash
-$ uv run src/app_http.py [auth]
+-n, --name      = MCP server
+-t, --transport = http
+-p, --port PORT = 8000
+-u, --url URL   = http://localhost
+-a, --auth AUTH = None (no authetication)
+-m, --path PATH = /mcp
 ```
-
-If used with the `auth` option, will be required authentication to connect.
-
-### SSE (legacy)
-
-**Endpoint**: `http://localhost:8000/sse`.
-To initiate the server, at the project root directory:
-
-```bash
-$ uv run src/app_sse.py [auth]
-```
-
-If used with the `auth` option, will be required authentication to connect.
