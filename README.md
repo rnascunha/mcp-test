@@ -14,6 +14,7 @@ Clone repository and install:
 
 ```bash
 $ git clone https://github.com/rnascunha/mcp-test
+$ cd mcp-test
 $ uv install
 ```
 
