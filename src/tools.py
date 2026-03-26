@@ -35,7 +35,6 @@ def get_weather(
         response = requests.get(url)
         response = response.json()
 
-        # return json.dumps(response)
         return response
     except Exception as e:
         raise ToolError("Error getting weather")
@@ -64,3 +63,18 @@ def get_current_datetime(timezone: Optional[str] = None) -> str:
         )
     except:
         raise ToolError("Error getting current time")
+
+
+@mcp.tool()
+def tell_me_a_joke() -> object:
+    """Returns a joke (not necessaraly funny)"""
+    
+    try:
+        response = requests.get("https://v2.jokeapi.dev/joke/Any")
+        data = response.json()
+        error = data.get("error", True)
+        if error:
+            raise "Error"
+        return {"setup": data["setup"], "delivery": data["delivery"]}
+    except Exception as e:
+        return ToolError("Error getting a joke")
