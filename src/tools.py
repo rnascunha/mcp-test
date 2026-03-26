@@ -55,7 +55,7 @@ def get_current_datetime(timezone: Optional[str] = None) -> str:
         if timezone:
             current_datetime = datetime.now(ZoneInfo(timezone))
         else:
-            current_datetime = datetime.now(ZoneInfo(timezone))
+            current_datetime = datetime.now()
         return json.dumps(
             {
                 "datetime": current_datetime.strftime("%d/%m/%Y %H:%M:%S"),
