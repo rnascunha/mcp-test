@@ -4,4 +4,4 @@ import resources
 import prompt
 from args import args
 
-mcp.run(transport=args.transport, port=args.port, path=args.path)
+mcp.run(transport=args.transport, port=args.port, path=args.path, host=args.url)

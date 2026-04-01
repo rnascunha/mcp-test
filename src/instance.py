@@ -8,7 +8,7 @@ verifier = (
             f"{args.auth}": {"client_id": "guest-user", "scopes": ["read:data"]},
         }
     )
-    if args.auth != None
+    if args.auth is not None
     else None
 )
 

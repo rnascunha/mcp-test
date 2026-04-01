@@ -61,14 +61,14 @@ def get_current_datetime(timezone: Optional[str] = None) -> str:
                 "timezone": timezone if timezone else "local",
             }
         )
-    except:
+    except Exception:
         raise ToolError("Error getting current time")
 
 
 @mcp.tool()
 def tell_me_a_joke() -> object:
     """Returns a joke (not necessaraly funny)"""
-    
+
     try:
         response = requests.get("https://v2.jokeapi.dev/joke/Any")
         data = response.json()

@@ -16,7 +16,7 @@ parser.add_argument(
     help="Transport protocol ('http'|'sse'). Default = http",
 )
 parser.add_argument("-p", "--port", default=8000, type=int, help="Endpoint port")
-parser.add_argument("-u", "--url", default="http://localhost", help="Endpoint URL")
+parser.add_argument("-u", "--url", default="localhost", help="Endpoint URL")
 parser.add_argument(
     "-a",
     "--auth",
